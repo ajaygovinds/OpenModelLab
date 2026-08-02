@@ -6,6 +6,8 @@ from openmodellab.genome.inspectors.hardware import inspect_hardware
 
 from openmodellab.genome.inspectors.fingerprint import inspect_fingerprint
 
+from datetime import datetime, UTC
+
 
 def count_parameters(model):
     return sum(p.numel() for p in model.parameters())
@@ -33,6 +35,12 @@ def inspect_model(model_name, model):
 
 def analyze_model(model_name, model, tokenizer):
     return {
+         "report": {
+            "tool": "OpenModelLab",
+            "tool_version": "0.1.0-alpha",
+            "schema_version": "1.0",
+            "generated_at": datetime.now(UTC).isoformat(),
+        },   
         "model": inspect_model(model_name, model),
         "tokenizer": inspect_tokenizer(tokenizer),
         "hardware": inspect_hardware(),
