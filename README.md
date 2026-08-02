@@ -243,6 +243,20 @@ outputs/
 
 ---
 
+## Screenshots
+
+### Model Comparison
+
+![Model Comparison](docs/images/comparison.png)
+
+### Benchmark Results
+
+![Latency](docs/images/latency.png)
+
+![Throughput](docs/images/throughput.png)
+
+---
+
 # Roadmap
 
 ## v0.1 — Model Genome Foundation ✅
