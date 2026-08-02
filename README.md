@@ -1,10 +1,28 @@
 # OpenModelLab
 
-OpenModelLab is an open-source framework for standardized inspection, profiling, and reporting of AI models.
+A framework for AI model genome extraction, runtime benchmarking, and reproducible model profiling.
 
-The goal is to make AI models **reproducible, comparable, and easier to understand** by generating structured **Model Genome Reports** and **Benchmark Reports** containing architecture, tokenizer, hardware, runtime behavior, and performance characteristics.
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21763818.svg)](https://doi.org/10.5281/zenodo.21763818)
 
-> **Status:** Alpha (v0.2.0)
+## Features
+
+- Model architecture inspection
+- Tokenizer analysis
+- Hardware profiling
+- Model fingerprint generation
+- Runtime benchmarking
+- Latency measurement
+- Throughput analysis
+- Batch scaling evaluation
+- Multi-model comparison
+- Visualization reports
+
+## Research Release
+
+OpenModelLab v0.3.3 is the first research release.
+
+Paper and archive:
+https://doi.org/10.5281/zenodo.21763818
 
 ---
 
@@ -328,3 +346,10 @@ Ajay Govind S
 GitHub:
 
 https://github.com/ajaygovinds/OpenModelLab
+
+
+## Cite OpenModelLab
+
+If you use this project, please cite:
+
+Ajay Govind. (2026). OpenModelLab: A Framework for AI Model Genome Extraction and Reproducible Benchmark Profiling. Zenodo. DOI: 10.5281/zenodo.21763818
