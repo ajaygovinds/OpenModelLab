@@ -49,35 +49,7 @@ OpenModelLab introduces the concept of a "Model Genome" — a structured represe
 
 # 3. OpenModelLab Architecture
 
-The system consists of four major components:
-
-            AI Model
-               |
-               v
-        Model Loader
-               |
-    +--------------------+
-    |   Genome Engine    |
-    +--------------------+
-      |       |       |
-   Model  Tokenizer Hardware
-      |
-Fingerprint + Precision
-
-
-    +--------------------+
-    | Benchmark Engine   |
-    +--------------------+
-      |       |       |
-  Latency Memory Throughput
-               |
-         Batch Scaling
-
-               |
-               v
-
-         JSON Reports
-
+![OpenModelLab Architecture](figures/architecture.png)
 
 ---
 
