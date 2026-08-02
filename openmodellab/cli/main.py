@@ -3,6 +3,8 @@ import argparse
 from openmodellab.genome.model_loader import load_model
 from openmodellab.genome.analyzer import analyze_model
 
+from openmodellab.benchmark import analyze_benchmark
+
 from openmodellab.reporting.json_writer import save_json
 from openmodellab.reporting.benchmark_writer import save_benchmark
 
@@ -37,20 +39,23 @@ def main():
 
         model, tokenizer = load_model(args.model)
 
-        report = analyze_model(
+        # Static genome
+        genome_report = analyze_model(
             args.model,
             model,
             tokenizer
         )
 
         genome_file = save_json(
-            report,
+            genome_report,
             args.model
         )
 
-        benchmark_report = {
-            "status": "Benchmarking module under development"
-        }
+        # Performance benchmark
+        benchmark_report = analyze_benchmark(
+            model,
+            tokenizer
+        )
 
         benchmark_file = save_benchmark(
             benchmark_report,
