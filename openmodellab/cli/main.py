@@ -9,7 +9,7 @@ from openmodellab.benchmark import analyze_benchmark
 
 from openmodellab.reporting.json_writer import save_json
 from openmodellab.reporting.benchmark_writer import save_benchmark
-
+from openmodellab.comparison.table import print_table
 
 def main():
 
@@ -104,9 +104,7 @@ def main():
             args.reports
         )
 
-        for row in results:
-            print()
-            print(row)
+        print_table(results)
 
 
 
