@@ -8,6 +8,8 @@ from openmodellab.genome.inspectors.fingerprint import inspect_fingerprint
 
 from datetime import datetime, UTC
 
+from openmodellab.genome.inspectors.precision import inspect_precision
+
 
 def count_parameters(model):
     return sum(p.numel() for p in model.parameters())
@@ -45,4 +47,5 @@ def analyze_model(model_name, model, tokenizer):
         "tokenizer": inspect_tokenizer(tokenizer),
         "hardware": inspect_hardware(),
         "fingerprint": inspect_fingerprint(model),
+        "precision": inspect_precision(model),
     }
