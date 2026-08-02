@@ -1,11 +1,13 @@
 from huggingface_hub import model_info
 
+from openmodellab.genome.inspectors.tokenizer import inspect_tokenizer
+
 
 def count_parameters(model):
     return sum(p.numel() for p in model.parameters())
 
 
-def analyze_model(model_name, model, tokenizer):
+def inspect_model(model_name, model):
     cfg = model.config
     info = model_info(model_name)
 
@@ -18,9 +20,15 @@ def analyze_model(model_name, model, tokenizer):
         "num_attention_heads": getattr(cfg, "num_attention_heads", None),
         "intermediate_size": getattr(cfg, "intermediate_size", None),
         "max_position_embeddings": getattr(cfg, "max_position_embeddings", None),
-        "vocab_size": tokenizer.vocab_size,
         "parameter_count": count_parameters(model),
         "dtype": str(next(model.parameters()).dtype),
         "framework": "transformers",
         "license": info.card_data.get("license") if info.card_data else None,
+    }
+
+
+def analyze_model(model_name, model, tokenizer):
+    return {
+        "model": inspect_model(model_name, model),
+        "tokenizer": inspect_tokenizer(tokenizer),
     }
