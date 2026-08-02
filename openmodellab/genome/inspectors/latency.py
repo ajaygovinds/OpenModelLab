@@ -13,8 +13,20 @@ def inspect_latency(
 ):
     model.eval()
 
-    # Use the device where the model already lives.
-    current_device = next(model.parameters()).device
+    # Detect execution device
+    if hasattr(model, "hf_device_map"):
+        devices = [
+            d for d in model.hf_device_map.values()
+            if d != "cpu"
+        ]
+
+        if devices:
+            current_device = torch.device(devices[0])
+        else:
+            current_device = torch.device("cpu")
+    else:
+        current_device = next(model.parameters()).device
+
     device = str(current_device)
 
     inputs = tokenizer(
@@ -24,13 +36,11 @@ def inspect_latency(
         max_length=128,
     )
 
-    # Move only the input tensors.
     inputs = {
         key: value.to(current_device)
         for key, value in inputs.items()
     }
 
-    # Warm-up
     with torch.no_grad():
         for _ in range(warmup_runs):
             _ = model(**inputs)
@@ -40,7 +50,6 @@ def inspect_latency(
 
     timings = []
 
-    # Benchmark
     with torch.no_grad():
         for _ in range(benchmark_runs):
 
