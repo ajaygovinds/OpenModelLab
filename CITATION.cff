@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+title: "OpenModelLab: A Framework for AI Model Genome Extraction and Reproducible Benchmark Profiling"
+message: "If you use OpenModelLab in your research, please cite this work."
+type: software
+authors:
+  - family-names: "Govind"
+    given-names: "Ajay"
+    orcid: ""
+version: "0.3.3"
+date-released: "2026-08-02"
+repository-code: "https://github.com/ajaygovinds/OpenModelLab"
+license: "MIT"
+keywords:
+  - Artificial Intelligence
+  - Machine Learning
+  - Model Benchmarking
+  - Model Metadata
+  - Transformers
+  - Reproducible Research
