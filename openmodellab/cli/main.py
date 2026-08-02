@@ -1,5 +1,7 @@
 import argparse
 
+from openmodellab.comparison.compare import generate_comparison
+
 from openmodellab.genome.model_loader import load_model
 from openmodellab.genome.analyzer import analyze_model
 
@@ -18,6 +20,8 @@ def main():
 
     subparsers = parser.add_subparsers(dest="command")
 
+
+    # Genome command
     genome = subparsers.add_parser(
         "genome",
         help="Generate a model genome report"
@@ -29,7 +33,22 @@ def main():
         help="Hugging Face model name"
     )
 
+
+    # Compare command
+    compare = subparsers.add_parser(
+        "compare",
+        help="Compare model reports"
+    )
+
+    compare.add_argument(
+        "--reports",
+        required=True,
+        help="Directory containing genome and benchmark reports"
+    )
+
+
     args = parser.parse_args()
+
 
     if args.command == "genome":
 
@@ -39,7 +58,8 @@ def main():
 
         model, tokenizer = load_model(args.model)
 
-        # Static genome
+
+        # Static genome analysis
         genome_report = analyze_model(
             args.model,
             model,
@@ -50,6 +70,7 @@ def main():
             genome_report,
             args.model
         )
+
 
         # Performance benchmark
         benchmark_report = analyze_benchmark(
@@ -62,6 +83,7 @@ def main():
             args.model
         )
 
+
         print()
         print("Genome report saved:")
         print(genome_file)
@@ -69,6 +91,23 @@ def main():
         print()
         print("Benchmark report saved:")
         print(benchmark_file)
+
+
+
+    elif args.command == "compare":
+
+        print("=" * 60)
+        print("OpenModelLab Model Comparison")
+        print("=" * 60)
+
+        results = generate_comparison(
+            args.reports
+        )
+
+        for row in results:
+            print()
+            print(row)
+
 
 
 if __name__ == "__main__":
