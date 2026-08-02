@@ -5,5 +5,6 @@ openmodellab/__init__.py
 openmodellab.egg-info/PKG-INFO
 openmodellab.egg-info/SOURCES.txt
 openmodellab.egg-info/dependency_links.txt
+openmodellab.egg-info/entry_points.txt
 openmodellab.egg-info/requires.txt
 openmodellab.egg-info/top_level.txt

@@ -10,7 +10,7 @@ readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
 authors = [
-  { name = "Aikosh" }
+  { name = "Ajay Govind S" }
 ]
 
 dependencies = [
@@ -23,3 +23,6 @@ dependencies = [
 
 [tool.setuptools]
 packages = ["openmodellab"]
+
+[project.scripts]
+openmodellab = "openmodellab.cli.main:main"
