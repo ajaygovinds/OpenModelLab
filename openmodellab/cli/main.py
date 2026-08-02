@@ -13,6 +13,11 @@ from openmodellab.reporting.benchmark_writer import save_benchmark
 from openmodellab.reporting.csv_writer import save_csv
 from openmodellab.reporting.html_writer import save_html
 
+from openmodellab.visualization.charts import (
+    save_latency_chart,
+    save_throughput_chart
+)
+
 
 def main():
 
@@ -56,7 +61,8 @@ def main():
         choices=[
             "table",
             "csv",
-            "html"
+            "html",
+            "charts"
         ],
         default="table",
         help="Output format"
@@ -116,6 +122,7 @@ def main():
         print("OpenModelLab Model Comparison")
         print("=" * 60)
 
+
         results = generate_comparison(
             args.reports
         )
@@ -140,6 +147,7 @@ def main():
             print(outfile)
 
 
+
         elif args.format == "html":
 
             outfile = save_html(
@@ -150,6 +158,30 @@ def main():
             print()
             print("HTML report saved:")
             print(outfile)
+
+
+
+        elif args.format == "charts":
+
+            latency_file = "latency_comparison.png"
+            throughput_file = "throughput_comparison.png"
+
+
+            save_latency_chart(
+                results,
+                latency_file
+            )
+
+            save_throughput_chart(
+                results,
+                throughput_file
+            )
+
+
+            print()
+            print("Charts generated:")
+            print(latency_file)
+            print(throughput_file)
 
 
 
