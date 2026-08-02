@@ -1,34 +1,55 @@
 # OpenModelLab
 
-> Standardized inspection framework for open AI models.
+OpenModelLab is an open-source framework for standardized inspection, profiling, and reporting of Hugging Face models.
 
-OpenModelLab helps researchers and developers inspect open-source AI models and generate structured, reproducible reports describing model architecture, tokenizer properties, hardware environment, and reproducible fingerprints.
+The goal is to make AI models reproducible, comparable, and easier to understand by generating structured "Model Genome Reports" that capture architecture, tokenizer, hardware, and other characteristics in a machine-readable format.
 
-Instead of manually writing inspection scripts for every model, OpenModelLab produces a consistent JSON report that can be shared, versioned, and compared across models.
-
----
-
-## Why OpenModelLab?
-
-Modern AI models expose thousands of configuration values, but there is no lightweight, standardized way to inspect them and generate reproducible metadata.
-
-OpenModelLab aims to solve this by providing:
-
-- Standardized model inspection
-- Tokenizer profiling
-- Hardware environment reporting
-- Reproducible model fingerprints
-- Machine-readable JSON reports
+> **Status:** Alpha (v0.1)
 
 ---
 
-## Current Features (v0.1 Alpha)
+## Vision
 
-- Model Inspector
-- Tokenizer Inspector
-- Hardware Inspector
-- Model Fingerprint
-- JSON Report Generation
+OpenModelLab aims to become a standard toolkit for:
+
+- Model inspection
+- Reproducible AI research
+- Hardware-aware benchmarking
+- Model fingerprinting
+- Standardized AI reports
+
+---
+
+## Current Features (v0.1)
+
+- ✅ Hugging Face model loading
+- ✅ Model architecture inspection
+- ✅ Tokenizer inspection
+- ✅ Hardware inspection
+- ✅ Model fingerprint generation
+- ✅ Structured JSON Genome Report
+
+---
+
+## Example Output
+
+```json
+{
+  "model": {
+    "architecture": "BertModel",
+    "parameter_count": 22713216
+  },
+  "tokenizer": {
+    "vocab_size": 30522
+  },
+  "hardware": {
+    "gpu_name": "NVIDIA A100-SXM4-40GB MIG 3g.20gb"
+  },
+  "fingerprint": {
+    "architecture_signature": "bert-6L-384H-12A"
+  }
+}
+```
 
 ---
 
@@ -44,32 +65,11 @@ pip install -e .
 
 ---
 
-## Quick Start
+## Current Usage
 
 ```bash
 PYTHONPATH=. python scripts/run_genome.py \
     --model sentence-transformers/all-MiniLM-L6-v2
-```
-
-Generated report:
-
-```
-outputs/
-└── sentence-transformers_all-MiniLM-L6-v2/
-    └── genome.json
-```
-
----
-
-## Example Report
-
-```json
-{
-  "model": { ... },
-  "tokenizer": { ... },
-  "hardware": { ... },
-  "fingerprint": { ... }
-}
 ```
 
 ---
@@ -77,22 +77,42 @@ outputs/
 ## Roadmap
 
 ### v0.1
-
 - Model inspection
-- Tokenizer inspection
 - Hardware inspection
+- Tokenizer inspection
 - Fingerprint generation
 
-### Future
-
-- Performance profiling
+### v0.2
+- Performance benchmarking
+- Latency profiling
 - Memory profiling
-- Dataset auditing
+- Quantization analysis
 - HTML reports
-- Benchmark integrations
+
+### Future
+- Multi-model comparison
+- Leaderboards
+- Benchmark datasets
+- Research report generation
+- Hugging Face integration
+
+---
+
+## Contributing
+
+Contributions, issues, and feature requests are welcome.
 
 ---
 
 ## License
 
 MIT License
+
+---
+
+## Author
+
+Ajay Govind S
+
+GitHub:
+https://github.com/ajaygovinds
