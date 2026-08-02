@@ -4,6 +4,8 @@ from openmodellab.genome.inspectors.tokenizer import inspect_tokenizer
 
 from openmodellab.genome.inspectors.hardware import inspect_hardware
 
+from openmodellab.genome.inspectors.fingerprint import inspect_fingerprint
+
 
 def count_parameters(model):
     return sum(p.numel() for p in model.parameters())
@@ -34,4 +36,5 @@ def analyze_model(model_name, model, tokenizer):
         "model": inspect_model(model_name, model),
         "tokenizer": inspect_tokenizer(tokenizer),
         "hardware": inspect_hardware(),
+        "fingerprint": inspect_fingerprint(model),
     }
