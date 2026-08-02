@@ -1,0 +1,71 @@
+{
+  "report": {
+    "tool": "OpenModelLab",
+    "tool_version": "0.1.0-alpha",
+    "schema_version": "1.0",
+    "generated_at": "2026-08-02T19:58:24.814551+00:00"
+  },
+  "model": {
+    "model_name": "google/mobilebert-uncased",
+    "architecture": "MobileBertModel",
+    "model_type": "mobilebert",
+    "hidden_size": 512,
+    "num_hidden_layers": 24,
+    "num_attention_heads": 4,
+    "intermediate_size": 512,
+    "max_position_embeddings": 512,
+    "parameter_count": 24581888,
+    "dtype": "torch.float32",
+    "framework": "transformers",
+    "license": "apache-2.0"
+  },
+  "tokenizer": {
+    "vocab_size": 30522,
+    "model_max_length": 1000000000000000019884624838656,
+    "is_fast": true,
+    "padding_side": "right",
+    "truncation_side": "right",
+    "special_tokens": {
+      "unk_token": "[UNK]",
+      "sep_token": "[SEP]",
+      "pad_token": "[PAD]",
+      "cls_token": "[CLS]",
+      "mask_token": "[MASK]"
+    },
+    "all_special_tokens": [
+      "[UNK]",
+      "[SEP]",
+      "[PAD]",
+      "[CLS]",
+      "[MASK]"
+    ]
+  },
+  "hardware": {
+    "torch_version": "2.6.0+cu124",
+    "cuda_available": true,
+    "cuda_version": "12.4",
+    "device_count": 1,
+    "device": "cuda:0",
+    "gpu_name": "NVIDIA A100-SXM4-40GB MIG 3g.20gb",
+    "gpu_total_memory_mb": 19968.0,
+    "gpu_free_memory_mb": 1.19,
+    "gpu_compute_capability": "8.0"
+  },
+  "fingerprint": {
+    "architecture_signature": "mobilebert-24L-512H-4A",
+    "config_sha256": "792db44df4107b7d18d46facc5052393859e449aae937175e6bc8ea7851d95e2",
+    "transformers_version": "4.57.6"
+  },
+  "precision": {
+    "dtype": "torch.float32",
+    "bits": 32,
+    "category": "FP32"
+  },
+  "execution": {
+    "requested_device": "auto",
+    "actual_device": "cpu",
+    "cuda_available": true,
+    "gpu_name": "NVIDIA A100-SXM4-40GB MIG 3g.20gb",
+    "fallback": true
+  }
+}

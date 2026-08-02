@@ -1,0 +1,59 @@
+{
+  "report": {
+    "tool": "OpenModelLab",
+    "tool_version": "0.1.0-alpha",
+    "schema_version": "1.0",
+    "generated_at": "2026-08-02T19:57:41.497413+00:00"
+  },
+  "latency": {
+    "device": "cpu",
+    "warmup_runs": 5,
+    "benchmark_runs": 20,
+    "average_ms": 14.26,
+    "min_ms": 12.85,
+    "max_ms": 21.57,
+    "std_ms": 2.054
+  },
+  "memory": {
+    "device": "cpu",
+    "ram_before_mb": 1039.84,
+    "ram_after_mb": 1039.84
+  },
+  "throughput": {
+    "device": "cpu",
+    "runs": 50,
+    "total_time_sec": 0.6315,
+    "samples_per_second": 79.182
+  },
+  "batch_scaling": {
+    "device": "cpu",
+    "batch_sizes": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "results": [
+      {
+        "batch_size": 1,
+        "latency_ms": 23.282,
+        "samples_per_second": 42.952
+      },
+      {
+        "batch_size": 2,
+        "latency_ms": 15.256,
+        "samples_per_second": 131.098
+      },
+      {
+        "batch_size": 4,
+        "latency_ms": 18.691,
+        "samples_per_second": 214.002
+      },
+      {
+        "batch_size": 8,
+        "latency_ms": 39.076,
+        "samples_per_second": 204.73
+      }
+    ]
+  }
+}
