@@ -137,36 +137,49 @@ Batch 2
 Batch 4
 Batch 8
 
-
 ---
 
 # 6. Experimental Evaluation
 
-Experiments were performed on transformer-based models:
+Experiments were performed on multiple transformer-based models to evaluate OpenModelLab's ability to extract model characteristics and generate runtime benchmark reports.
+
+The evaluated models represent different architectural scales and optimization approaches:
 
 | Model | Parameters | Layers | Hidden Size |
-|------|-----------|--------|-------------|
+|---|---:|---:|---:|
 | BERT | 109M | 12 | 768 |
 | DistilBERT | 66M | 6 | 768 |
 | MiniLM | 22M | 6 | 384 |
 | MobileBERT | 24M | 24 | 512 |
 
-The framework generated genome and benchmark reports for each model.
+For each model, OpenModelLab generated:
+
+- Model Genome Report
+- Tokenizer Analysis
+- Hardware Profile
+- Model Fingerprint
+- Runtime Benchmark Report
 
 ---
 
 # 7. Results
 
-Example comparison:
+Runtime benchmarking was performed to measure inference latency and throughput.
 
 | Model | Latency | Throughput |
-|------|---------|------------|
+|---|---:|---:|
 | MiniLM | 6.21 ms | 112.9 samples/s |
 | DistilBERT | 14.26 ms | 79.1 samples/s |
 | BERT | 74.68 ms | 15 samples/s |
 | MobileBERT | 83.75 ms | 15.2 samples/s |
 
-The results demonstrate that model architecture size and configuration significantly influence runtime behaviour.
+The results show that model architecture and size have a direct impact on inference performance.
+
+MiniLM achieved the best runtime performance among evaluated models due to its smaller architecture, reduced hidden size, and lower parameter count.
+
+BERT and MobileBERT showed higher latency due to increased architectural complexity.
+
+These experiments demonstrate that OpenModelLab can provide a unified view of both static model characteristics and practical runtime behaviour.
 
 ---
 
