@@ -1,6 +1,7 @@
 import argparse
 
 from openmodellab.comparison.compare import generate_comparison
+from openmodellab.comparison.table import print_table
 
 from openmodellab.genome.model_loader import load_model
 from openmodellab.genome.analyzer import analyze_model
@@ -9,7 +10,9 @@ from openmodellab.benchmark import analyze_benchmark
 
 from openmodellab.reporting.json_writer import save_json
 from openmodellab.reporting.benchmark_writer import save_benchmark
-from openmodellab.comparison.table import print_table
+from openmodellab.reporting.csv_writer import save_csv
+from openmodellab.reporting.html_writer import save_html
+
 
 def main():
 
@@ -18,7 +21,9 @@ def main():
         description="OpenModelLab - Model Genome Generator"
     )
 
-    subparsers = parser.add_subparsers(dest="command")
+    subparsers = parser.add_subparsers(
+        dest="command"
+    )
 
 
     # Genome command
@@ -46,6 +51,17 @@ def main():
         help="Directory containing genome and benchmark reports"
     )
 
+    compare.add_argument(
+        "--format",
+        choices=[
+            "table",
+            "csv",
+            "html"
+        ],
+        default="table",
+        help="Output format"
+    )
+
 
     args = parser.parse_args()
 
@@ -56,10 +72,11 @@ def main():
         print("OpenModelLab Genome")
         print("=" * 60)
 
-        model, tokenizer = load_model(args.model)
+        model, tokenizer = load_model(
+            args.model
+        )
 
 
-        # Static genome analysis
         genome_report = analyze_model(
             args.model,
             model,
@@ -72,7 +89,6 @@ def main():
         )
 
 
-        # Performance benchmark
         benchmark_report = analyze_benchmark(
             model,
             tokenizer
@@ -104,7 +120,36 @@ def main():
             args.reports
         )
 
-        print_table(results)
+
+        if args.format == "table":
+
+            print_table(
+                results
+            )
+
+
+        elif args.format == "csv":
+
+            outfile = save_csv(
+                results,
+                "comparison_report.csv"
+            )
+
+            print()
+            print("CSV report saved:")
+            print(outfile)
+
+
+        elif args.format == "html":
+
+            outfile = save_html(
+                results,
+                "comparison_report.html"
+            )
+
+            print()
+            print("HTML report saved:")
+            print(outfile)
 
 
 
