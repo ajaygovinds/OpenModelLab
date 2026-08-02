@@ -2,7 +2,9 @@ import argparse
 
 from openmodellab.genome.model_loader import load_model
 from openmodellab.genome.analyzer import analyze_model
+
 from openmodellab.reporting.json_writer import save_json
+from openmodellab.reporting.benchmark_writer import save_benchmark
 
 
 def main():
@@ -41,14 +43,27 @@ def main():
             tokenizer
         )
 
-        outfile = save_json(
+        genome_file = save_json(
             report,
+            args.model
+        )
+
+        benchmark_report = {
+            "status": "Benchmarking module under development"
+        }
+
+        benchmark_file = save_benchmark(
+            benchmark_report,
             args.model
         )
 
         print()
         print("Genome report saved:")
-        print(outfile)
+        print(genome_file)
+
+        print()
+        print("Benchmark report saved:")
+        print(benchmark_file)
 
 
 if __name__ == "__main__":
