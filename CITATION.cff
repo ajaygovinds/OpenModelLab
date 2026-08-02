@@ -5,10 +5,10 @@ type: software
 authors:
   - family-names: "Govind"
     given-names: "Ajay"
-    orcid: ""
 version: "0.3.3"
 date-released: "2026-08-02"
 repository-code: "https://github.com/ajaygovinds/OpenModelLab"
+doi: "10.5281/zenodo.21763818"
 license: "MIT"
 keywords:
   - Artificial Intelligence
