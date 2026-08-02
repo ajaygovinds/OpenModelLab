@@ -10,7 +10,7 @@ def inspect_execution(model, requested_device="auto"):
     cuda_available = torch.cuda.is_available()
 
     fallback = (
-        requested_device == "cuda"
+        cuda_available
         and not actual_device.startswith("cuda")
     )
 
