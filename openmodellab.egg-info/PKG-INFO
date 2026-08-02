@@ -1,0 +1,114 @@
+Metadata-Version: 2.4
+Name: openmodellab
+Version: 0.1.0a1
+Summary: Standardized inspection framework for open AI models.
+Author: Aikosh
+License: MIT
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: torch==2.6.0
+Requires-Dist: transformers>=4.57.1
+Requires-Dist: datasets
+Requires-Dist: sentence-transformers
+Requires-Dist: huggingface-hub
+Dynamic: license-file
+
+# OpenModelLab
+
+> Standardized inspection framework for open AI models.
+
+OpenModelLab helps researchers and developers inspect open-source AI models and generate structured, reproducible reports describing model architecture, tokenizer properties, hardware environment, and reproducible fingerprints.
+
+Instead of manually writing inspection scripts for every model, OpenModelLab produces a consistent JSON report that can be shared, versioned, and compared across models.
+
+---
+
+## Why OpenModelLab?
+
+Modern AI models expose thousands of configuration values, but there is no lightweight, standardized way to inspect them and generate reproducible metadata.
+
+OpenModelLab aims to solve this by providing:
+
+- Standardized model inspection
+- Tokenizer profiling
+- Hardware environment reporting
+- Reproducible model fingerprints
+- Machine-readable JSON reports
+
+---
+
+## Current Features (v0.1 Alpha)
+
+- Model Inspector
+- Tokenizer Inspector
+- Hardware Inspector
+- Model Fingerprint
+- JSON Report Generation
+
+---
+
+## Installation
+
+```bash
+git clone https://github.com/ajaygovinds/OpenModelLab.git
+
+cd OpenModelLab
+
+pip install -e .
+```
+
+---
+
+## Quick Start
+
+```bash
+PYTHONPATH=. python scripts/run_genome.py \
+    --model sentence-transformers/all-MiniLM-L6-v2
+```
+
+Generated report:
+
+```
+outputs/
+└── sentence-transformers_all-MiniLM-L6-v2/
+    └── genome.json
+```
+
+---
+
+## Example Report
+
+```json
+{
+  "model": { ... },
+  "tokenizer": { ... },
+  "hardware": { ... },
+  "fingerprint": { ... }
+}
+```
+
+---
+
+## Roadmap
+
+### v0.1
+
+- Model inspection
+- Tokenizer inspection
+- Hardware inspection
+- Fingerprint generation
+
+### Future
+
+- Performance profiling
+- Memory profiling
+- Dataset auditing
+- HTML reports
+- Benchmark integrations
+
+---
+
+## License
+
+MIT License

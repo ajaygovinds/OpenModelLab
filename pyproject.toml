@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "openmodellab"
+version = "0.1.0a1"
+description = "Standardized inspection framework for open AI models."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [
+  { name = "Aikosh" }
+]
+
+dependencies = [
+    "torch==2.6.0",
+    "transformers>=4.57.1",
+    "datasets",
+    "sentence-transformers",
+    "huggingface-hub"
+]
+
+[tool.setuptools]
+packages = ["openmodellab"]
