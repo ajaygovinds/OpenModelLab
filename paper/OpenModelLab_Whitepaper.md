@@ -229,3 +229,23 @@ https://github.com/ajaygovinds/OpenModelLab
 # License
 
 MIT License
+
+## 8. CPU vs GPU Evaluation
+
+To evaluate the effect of execution hardware, the same four transformer models were benchmarked on both CPU and an NVIDIA A100-SXM4-40GB MIG 1g.5GB environment. The GPU environment used CUDA 12.4 and PyTorch 2.6.0+cu124.
+
+| Model | CPU Latency (ms) | GPU Latency (ms) | CPU Throughput (samples/s) | GPU Throughput (samples/s) |
+|---|---:|---:|---:|---:|
+| BERT | 74.689 | 5.990 | 15.012 | 167.802 |
+| DistilBERT | 14.260 | 3.076 | 79.182 | 345.672 |
+| MiniLM | 6.210 | 3.103 | 112.906 | 323.450 |
+| MobileBERT | 83.750 | 27.134 | 15.253 | 36.643 |
+
+The results demonstrate that execution hardware has a significant effect on model runtime performance. BERT showed the largest latency improvement when moving from CPU to GPU, while DistilBERT achieved the highest GPU throughput among the evaluated models.
+
+The results also demonstrate that parameter count alone does not determine runtime performance. MobileBERT, despite having substantially fewer parameters than BERT, exhibited higher latency than BERT on both CPU and GPU in this experiment.
+
+The GPU benchmark was performed on an NVIDIA A100-SXM4-40GB configured as a 1g.5gb MIG instance with approximately 4.86 GB of visible GPU memory and compute capability 8.0.
+
+These results are intended as an experimental evaluation of OpenModelLab's profiling capabilities rather than as universal hardware performance claims. Runtime results can vary with software versions, hardware configuration, batch size, sequence length, and system load.
+

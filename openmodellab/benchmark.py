@@ -1,5 +1,6 @@
 from datetime import datetime, UTC
 
+from openmodellab.genome.inspectors.hardware import inspect_hardware
 from openmodellab.genome.inspectors.latency import inspect_latency
 from openmodellab.genome.inspectors.memory import inspect_memory
 from openmodellab.genome.inspectors.throughput import inspect_throughput
@@ -14,6 +15,7 @@ def analyze_benchmark(model, tokenizer):
             "schema_version": "1.0",
             "generated_at": datetime.now(UTC).isoformat(),
         },
+        "hardware": inspect_hardware(),
         "latency": inspect_latency(
             model,
             tokenizer
