@@ -2,7 +2,7 @@
 
 A framework for AI model genome extraction, runtime benchmarking, and reproducible model profiling.
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21763818.svg)](https://doi.org/10.5281/zenodo.21763818)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21861654.svg)](https://doi.org/10.5281/zenodo.21861654)
 
 ## Features
 
@@ -22,7 +22,7 @@ A framework for AI model genome extraction, runtime benchmarking, and reproducib
 OpenModelLab v0.3.3 is the first research release.
 
 Paper and archive:
-https://doi.org/10.5281/zenodo.21763818
+https://doi.org/10.5281/zenodo.21861654
 
 ---
 
@@ -352,4 +352,4 @@ https://github.com/ajaygovinds/OpenModelLab
 
 If you use this project, please cite:
 
-Ajay Govind. (2026). OpenModelLab: A Framework for AI Model Genome Extraction and Reproducible Benchmark Profiling. Zenodo. DOI: 10.5281/zenodo.21763818
+Ajay Govind. (2026). OpenModelLab: A Framework for AI Model Genome Extraction and Reproducible Benchmark Profiling. Zenodo. DOI: 10.5281/zenodo.21861654
