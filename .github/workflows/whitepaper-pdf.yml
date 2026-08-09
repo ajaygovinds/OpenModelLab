@@ -1,0 +1,15 @@
+name: Build Whitepaper PDF
+on:
+  workflow_dispatch:
+jobs:
+  build-pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pandoc/pandoc-action@v0.4.2
+        with:
+          args: paper/OpenModelLab_Whitepaper.md -o paper/OpenModelLab_Whitepaper.pdf --pdf-engine=xelatex -V geometry:margin=1in -V fontsize=11pt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: OpenModelLab-Whitepaper-v0.4.0
+          path: paper/OpenModelLab_Whitepaper.pdf
