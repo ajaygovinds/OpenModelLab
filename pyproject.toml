@@ -22,7 +22,17 @@ dependencies = [
 ]
 
 [tool.setuptools]
-packages = ["openmodellab"]
+packages = [
+    "openmodellab",
+    "openmodellab.genome",
+    "openmodellab.genome.inspectors",
+    "openmodellab.cli",
+    "openmodellab.comparison",
+    "openmodellab.reporting",
+    "openmodellab.visualization",
+    "openmodellab.auditor",
+    "openmodellab.common"
+]
 
 [project.scripts]
 openmodellab = "openmodellab.cli.main:main"
